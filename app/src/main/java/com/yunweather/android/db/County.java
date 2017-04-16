@@ -47,4 +47,36 @@ public class County extends DataSupport {
     public void setCityId(int cityId) {
         this.cityId = cityId;
     }
+
+    /*private String cityEn;
+    private String cityZh;
+    private String leaderEn;
+    private String Id;
+
+    public String getCityEn(){
+        return cityEn;
+    }
+    public void setCityEn(String cityEn){
+        this.cityEn = cityEn;
+    }
+
+    public String getCityZh(){
+        return cityZh;
+    }
+    public void setCityZh(String cityZh){
+        this.cityZh = cityZh;
+    }
+    public String getLeaderEn() {
+        return leaderEn;
+    }
+    public void setLeaderEn(String leaderEn) {
+        this.leaderEn = leaderEn;
+    }
+    public String getId() {
+        return Id;
+    }
+    public void setId(String Id) {
+        this.Id = Id;
+    }*/
+
 }

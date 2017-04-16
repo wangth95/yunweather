@@ -47,4 +47,29 @@ public class City extends DataSupport {
     public void setProvinceId(int provinceId) {
         this.provinceId = provinceId;
     }
+
+    //服务器崩溃
+    /*private String leaderEn;
+    private String leaderZh;
+    private String provinceEn;
+
+    public String getLeaderEn(){
+        return leaderEn;
+    }
+    public void setLeaderEn(String leaderEn){
+        this.leaderEn = leaderEn;
+    }
+
+    public String getLeaderZh(){
+        return leaderZh;
+    }
+    public void setLeaderZh(String leaderZh){
+        this.leaderZh = leaderZh;
+    }
+    public String getProvinceEn() {
+        return provinceEn;
+    }
+    public void setProvinceEn(String provinceEn) {
+        this.provinceEn = provinceEn;
+    }*/
 }

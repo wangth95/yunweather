@@ -13,6 +13,7 @@ public class Province extends DataSupport {
     private String provinceName;
 
     private int provinceCode;   //省的代号
+    //private String provinceId;
 
     public int getId() {
         return id;
@@ -37,4 +38,22 @@ public class Province extends DataSupport {
     public void setProvinceCode(int provinceCode) {
         this.provinceCode = provinceCode;
     }
+
+    /*private String provinceEn;
+    private String provinceZh;
+
+    public String getProvinceEn(){
+        return provinceEn;
+    }
+    public void setProvinceEn(String provinceEn){
+        this.provinceEn = provinceEn;
+    }
+
+    public String getProvinceZh(){
+        return provinceZh;
+    }
+    public void setProvinceZh(String provinceZh){
+        this.provinceZh = provinceZh;
+    }*/
+
 }
