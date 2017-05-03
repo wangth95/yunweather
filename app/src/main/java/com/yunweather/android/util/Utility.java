@@ -3,6 +3,7 @@ package com.yunweather.android.util;
 import android.text.TextUtils;
 
 import com.google.gson.Gson;
+import com.yunweather.android.db.District;
 import com.yunweather.android.gson.Weather;
 import com.yunweather.android.db.City;
 import com.yunweather.android.db.County;
@@ -17,68 +18,6 @@ import org.json.JSONObject;
  */
 
 public class Utility {
-
-    /*//解析和处理服务器传回的省级数据
-    public static boolean handleProvinceResponse(String response){
-        if (!TextUtils.isEmpty(response)){
-            try{
-                JSONArray allProvinces = new JSONArray(response);
-                for (int i = 0 ; i < allProvinces.length() ; i++){
-                    JSONObject provinceObject = allProvinces.getJSONObject(i);
-                    Province province = new Province();
-                    province.setProvinceZh(provinceObject.getString("provinceZh"));
-                    province.setProvinceEn(provinceObject.getString("provinceEn"));
-                    province.save();
-                }
-                return true;
-            }catch (JSONException e){
-                e.printStackTrace();
-            }
-        }
-        return false;
-    }
-
-    //解析和处理服务器返回的市级数据
-    public static boolean handleCityResponse(String response, String provinceEn) {
-        if (!TextUtils.isEmpty(response)) {
-            try {
-                JSONArray allCities = new JSONArray(response);
-                for (int i = 0; i < allCities.length(); i++) {
-                    JSONObject cityObject = allCities.getJSONObject(i);
-                    City city = new City();
-                    city.setLeaderZh(cityObject.getString("leaderZh"));
-                    city.setLeaderEn(cityObject.getString("leaderEn"));
-                    city.setProvinceEn(provinceEn);
-                    city.save();
-                }
-                return true;
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-        return false;
-    }
-
-    //解析和处理服务器返回的县级数据
-    public static boolean handleCountyResponse(String response, String leaderEn) {
-        if (!TextUtils.isEmpty(response)) {
-            try {
-                JSONArray allCounties = new JSONArray(response);
-                for (int i = 0; i < allCounties.length(); i++) {
-                    JSONObject countyObject = allCounties.getJSONObject(i);
-                    County county = new County();
-                    county.setCityZh(countyObject.getString("name"));
-                    county.setId(countyObject.getString("id"));
-                    county.setLeaderEn(leaderEn);
-                    county.save();
-                }
-                return true;
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-        return false;
-    }*/
 
     /**
      * 解析和处理服务器返回的省级数据
@@ -138,6 +77,7 @@ public class Utility {
                     county.setCountyName(countyObject.getString("name"));
                     county.setWeatherId(countyObject.getString("weather_id"));
                     county.setCityId(cityId);
+                    //county.setCountyZh("name");
                     county.save();
                 }
                 return true;
@@ -147,6 +87,29 @@ public class Utility {
         }
         return false;
     }
+
+    public static boolean handleSearchResponse(String response, String countyZh) {
+        if (!TextUtils.isEmpty(response)) {
+            try {
+                JSONArray allDistricts = new JSONArray(response);
+                for (int i = 0; i < allDistricts.length(); i++) {
+                    JSONObject districtObject = allDistricts.getJSONObject(i);
+                    District district = new District();
+                    district.setId(i);
+                    district.setCountyZh(districtObject.getString("cityZh"));
+                    district.setWeatherId(districtObject.getString("id"));
+                    district.setleaderZh(districtObject.getString("leaderZh"));
+                    district.setprovinceZh(districtObject.getString("provinceZh"));
+                    district.save();
+                }
+                return true;
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+        return false;
+    }
+
 
     //将返回的JSON数据解析成Weather类
     public static Weather handleWeatherResponse(String response){
@@ -161,6 +124,5 @@ public class Utility {
         }
         return null;
     }
-
 
 }

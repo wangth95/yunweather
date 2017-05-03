@@ -9,6 +9,7 @@
         <mapping class="com.yunweather.android.db.Province"/>
         <mapping class="com.yunweather.android.db.City"/>
         <mapping class="com.yunweather.android.db.County"/>
+        <mapping class="com.yunweather.android.db.District"/>
     </list>
 
 </litepal>

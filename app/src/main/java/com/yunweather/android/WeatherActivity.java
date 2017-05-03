@@ -3,6 +3,7 @@ package com.yunweather.android;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.media.Image;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -219,7 +220,8 @@ public class WeatherActivity extends AppCompatActivity {
 
     //加载bing每日一图
     private void loadBingPic(){
-        String requestBingPic = "http://guolin.tech/api/bing_pic";//https://www.dujin.org/sys/bing/1920.php**
+        String requestBingPic = "http://guolin.tech/api/bing_pic";
+        //https://www.dujin.org/sys/bing/1920.php**
                                                                         // http://guolin.tech/api/bing_pic
         HttpUtil.sendOkHttpRequest(requestBingPic, new Callback() {
 
