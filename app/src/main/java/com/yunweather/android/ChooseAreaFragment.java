@@ -132,7 +132,7 @@ public class ChooseAreaFragment extends Fragment {
                         //执行插入语句
                         querySearch(address, cityZh);
                     }else {
-                        searchCounties(cityZh);
+                        searchDistrict(cityZh);
                     }
                 }
             }
@@ -162,7 +162,7 @@ public class ChooseAreaFragment extends Fragment {
                     }
                 } else if (!cityZh.equals("")){
                     selectedDistrict = districtList.get(position);
-                    searchCounties(cityZh);
+                    searchDistrict(cityZh);
                     String weatherId = districtList.get(position).getWeatherId();
                     if (getActivity() instanceof MainActivity) {
                         inputText.setText("");
@@ -354,7 +354,7 @@ public class ChooseAreaFragment extends Fragment {
         }
     }*/
 
-    private void searchCounties(String cityZh) {
+    private void searchDistrict(String cityZh) {
         titleText.setText("搜索结果");
         backButton.setVisibility(View.VISIBLE);
 
@@ -404,7 +404,7 @@ public class ChooseAreaFragment extends Fragment {
                         @Override
                         public void run() {
                             closeProgressDialog();
-                            searchCounties(type);
+                            searchDistrict(type);
                         }
                     });
                 }

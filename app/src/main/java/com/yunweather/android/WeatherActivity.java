@@ -219,7 +219,7 @@ public class WeatherActivity extends AppCompatActivity {
     }
 
     //加载bing每日一图
-    private void loadBingPic(){
+    /*private void loadBingPic(){
         String requestBingPic = "http://guolin.tech/api/bing_pic";
         //https://www.dujin.org/sys/bing/1920.php**
                                                                         // http://guolin.tech/api/bing_pic
@@ -246,6 +246,20 @@ public class WeatherActivity extends AppCompatActivity {
             }
 
         });
+    }*/
+
+    private void loadBingPic(){
+        final String bingPic = "https://www.dujin.org/sys/bing/1920.php";
+        SharedPreferences.Editor editor = PreferenceManager.
+                getDefaultSharedPreferences(WeatherActivity.this).edit();
+        editor.putString("bing_pic", bingPic);
+        editor.apply();
+        runOnUiThread(new Runnable() {
+            @Override public void run() {
+                Glide.with(WeatherActivity.this).load(bingPic).into(bingPicImg);
+            }
+        });
+
     }
 
 }
